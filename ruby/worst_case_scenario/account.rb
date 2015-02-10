@@ -16,7 +16,7 @@ class Account
     when :cd
       raise ImmatureFundsException if (type == :cd && Date.today < @maturation_date)
     when :money_market
-      raise OverdrawException if @balance - amount > @minimum_balance
+      raise OverdrawException if @balance - amount < @minimum_balance
     end
     @balance -= amount
   end
