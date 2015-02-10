@@ -111,4 +111,12 @@ describe Account do
     end
 
   end
+
+  describe 'unknown account' do
+
+    it 'throws errors' do
+      lambda {Account.new(:doodad, 100, 0.3, nil, 200)}.must_raise(UnknownAccountType)
+    end
+
+  end
 end

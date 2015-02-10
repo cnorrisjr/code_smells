@@ -2,7 +2,7 @@ class Account
   attr_reader :type, :balance, :maturation_date, :interest_rate, :minimum_balance
 
   def initialize(type, balance, interest_rate, maturation_date = nil, minimum_balance = nil)
-    throw UnknownAccountType unless [:cd, :savings, :checking, :money_market].include?(type)
+    raise UnknownAccountType unless [:cd, :savings, :checking, :money_market].include?(type)
     @type = type
     @balance = balance
     @maturation_date = maturation_date
